@@ -1,0 +1,78 @@
+@import "https://unpkg.com/open-props";
+@import "https://unpkg.com/open-props/normalize.min.css";
+
+.hero {
+    padding-block: 14svh;
+    display: grid;
+    place-items: center;
+    gap: 5px;
+  
+    text-transform: uppercase;
+    font-size: min(10vi, 15vmin);
+    font-family: var(--font-system-ui);
+  
+    h1 {
+      anchor-name: var(--⚓︎);
+  
+      text-box: cap alphabetic;
+      letter-spacing: -.125ch;
+      font-size: inherit;
+      font-weight: 900;
+      font-variation-settings: 'wght' 900, 'opsz' 15, 'GRAD' 600;
+  
+      a:not(:hover, :focus-visible) {
+        text-decoration: none;
+      }
+    }
+  
+    p {
+      white-space: nowrap;
+      text-box: cap alphabetic;
+      font-size: .35cap;
+      font-weight: 700;
+      font-variation-settings: 'wght' 700;
+      line-height: 1cap;
+      color: color-mix(in oklab, currentcolor, transparent 30%);
+    }
+  
+    > div {
+      position-anchor: var(--⚓︎🎯);
+      position: fixed;
+      margin-inline-start: .1ch;
+      left: anchor(right);
+      top: anchor(top);
+      bottom: anchor(bottom);
+  
+      display: grid;
+      align-content: space-between;
+  
+      perspective: 1000px;
+  
+      > p {
+        transform-style: preserve-3d;
+        transform-origin: left;
+        transition: transform 3s var(--ease-spring-5) var(--delay, 0s);
+        backface-visibility: hidden;
+      }
+    }
+  
+    @layer support {
+      * {
+        box-sizing: border-box;
+        margin: 0;
+      }
+  
+      html {
+        block-size: 100%;
+        color-scheme: dark light;
+      }
+  
+      body {
+        min-block-size: 100%;
+        font-family: system-ui, sans-serif;
+  
+        display: grid;
+        place-content: center;
+      }
+    }
+  }
