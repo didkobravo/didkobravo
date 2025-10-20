@@ -1,5 +1,14 @@
-@import "//open-props/open-props.css" layer(design.system);
-@import "//open-props/normalize.min.css" layer(demo.support);
+// @import "https://unpkg.com/open-props" layer(design.system);
+// @import "https://unpkg.com/open-props/normalize.min.css" layer(demo.support);
+
+// @import "//open-props/open-props.css" layer(design.system);
+// @import "//open-props/normalize.min.css" layer(demo.support);
+
+// @import "open-props/open-props.css" layer('design.system');
+// @import "open-props/normalize.min.css" layer(demo.support);
+
+// @import "open-props/open-props.css";
+// @import "open-props/normalize.min.css";
 
 @keyframes slide-in {
   from {
