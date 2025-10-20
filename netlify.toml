@@ -9,8 +9,3 @@
   from = "/*"
   to = "/index.html"
   status = 200
-
-# NEW: Explicitly disable the problematic runtime plugin
-[[plugins]]
-  package = "@netlify/angular-runtime"
-  disable = true
