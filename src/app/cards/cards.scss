@@ -6,6 +6,10 @@
     scale: .85;
     rotate: calc((var(--side, 1) * (5deg * var(--amp, 1))));
   }
+  to {
+    scale: 1;
+    rotate: 0;
+  }
 }
 @layer demo {
     .card-animation-layer {
