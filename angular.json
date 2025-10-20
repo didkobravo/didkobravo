@@ -58,10 +58,10 @@
           "builder": "@angular/build:dev-server",
           "configurations": {
             "production": {
-              "buildTarget": "ngDidkoBravo:build:production"
+              "buildTarget": "didkobravo:build:production"
             },
             "development": {
-              "buildTarget": "ngDidkoBravo:build:development"
+              "buildTarget": "didkobravo:build:development"
             }
           },
           "defaultConfiguration": "development"
