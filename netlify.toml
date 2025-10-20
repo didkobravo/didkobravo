@@ -1,0 +1,16 @@
+[build]
+  # Using the npm run build command is correct
+  command = "npm run build"
+  # This is the correct folder structure you cleaned up locally
+  publish = "dist/didkobravo/browser"
+
+[[redirects]]
+  # This is crucial for Angular routing (so URLs like /systems work)
+  from = "/*"
+  to = "/index.html"
+  status = 200
+
+# NEW: Explicitly disable the problematic runtime plugin
+[[plugins]]
+  package = "@netlify/angular-runtime"
+  disable = true
