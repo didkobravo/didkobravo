@@ -1,27 +1,27 @@
-@layer app;
+// @layer app;
 
-@layer app {
-    @keyframes slide-in {
-        from {
-            scale: .85;
-            rotate: calc((var(--side, 1) * (5deg * var(--amp, 1))));
-        }
-        to {
-            scale: 1;
-            rotate: 0;
-        }
-    }
+// @layer app {
+//     @keyframes slide-in {
+//         from {
+//             scale: .85;
+//             rotate: calc((var(--side, 1) * (5deg * var(--amp, 1))));
+//         }
+//         to {
+//             scale: 1;
+//             rotate: 0;
+//         }
+//     }
     
-    .card-animation-layer {
-        @media (prefers-reduced-motion: no-preference) {
-            @supports (animation-timeline: view()) {
-                animation: slide-in linear both;
-                animation-timeline: view();
-                animation-range: cover 0% contain 15%;
-            }
-        }
-    }
-}
+//     .card-animation-layer {
+//         @media (prefers-reduced-motion: no-preference) {
+//             @supports (animation-timeline: view()) {
+//                 animation: slide-in linear both;
+//                 animation-timeline: view();
+//                 animation-range: cover 0% contain 15%;
+//             }
+//         }
+//     }
+// }
 
 .cards {
     display: grid;
@@ -76,39 +76,6 @@
             &:nth-of-type(8n + 7) { transform-origin: -75vw 100%; --side: 1; --amp: 3; }
             &:nth-of-type(8n)     { transform-origin: -100vw 100%; --side: 1; --amp: 4; }
         }
-    }
-}
-
-.card {
-    background: var(--surface-2);
-    border: 1px solid color-mix(in srgb, var(--surface-4), #0000 50%);
-    padding-block: var(--size-3) var(--size-2);
-    padding-inline: var(--size-3);
-    border-radius: var(--radius-4);
-    box-shadow: var(--shadow-4);
-
-    &.landscape img { aspect-ratio: var(--ratio-landscape) }
-    &.portrait img { aspect-ratio: var(--ratio-portrait) }
-    &.square img { aspect-ratio: var(--ratio-square) }
-
-    & > p {
-        color: var(--text-2);
-        line-clamp: 2;
-    }
-
-    & > :is(a, p) {
-        font-size: var(--font-size-1);
-        line-height: 1.25;
-    }
-
-    img {
-        background-color: var(--surface-3);
-        border-radius: var(--radius-3);
-        margin-block-end: var(--size-2);
-    }
-
-    @media (prefers-color-scheme: light) {
-        background: white;
     }
 }
 

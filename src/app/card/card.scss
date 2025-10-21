@@ -1,0 +1,96 @@
+@layer app;
+
+@layer app {
+    @keyframes slide-in {
+        from {
+            scale: .85;
+            rotate: calc((var(--side, 1) * (5deg * var(--amp, 1))));
+        }
+        to {
+            scale: 1;
+            rotate: 0;
+        }
+    }
+    
+    // .card-animation-layer 
+    :host {
+        @media (prefers-reduced-motion: no-preference) {
+            @supports (animation-timeline: view()) {
+                animation: slide-in linear both;
+                animation-timeline: view();
+                animation-range: cover 0% contain 15%;
+            }
+        }
+    }
+}
+
+.card {
+    background: var(--surface-2);
+    border: 1px solid color-mix(in srgb, var(--surface-4), #0000 50%);
+    padding-block: var(--size-3) var(--size-2);
+    padding-inline: var(--size-3);
+    border-radius: var(--radius-4);
+    box-shadow: var(--shadow-4);
+
+    &.landscape img { aspect-ratio: var(--ratio-landscape) }
+    &.portrait img { aspect-ratio: var(--ratio-portrait) }
+    &.square img { aspect-ratio: var(--ratio-square) }
+
+    & > p {
+        color: var(--text-2);
+        line-clamp: 2;
+    }
+
+    & > :is(a, p) {
+        font-size: var(--font-size-1);
+        line-height: 1.25;
+    }
+
+    img {
+        background-color: var(--surface-3);
+        border-radius: var(--radius-3);
+        margin-block-end: var(--size-2);
+    }
+
+    @media (prefers-color-scheme: light) {
+        background: white;
+    }
+}
+
+
+// dialog
+// - - - - - - - - - - - - - - - - 
+
+dialog {
+    display: none;
+    place-self: center;
+    animation: vanish 1s;
+}
+
+dialog[open] {
+    display: block;
+    animation: appear 1s;
+}
+
+dialog[open]::backdrop {
+    display: none;
+}
+
+@keyframes appear {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+@keyframes vanish {
+    from {
+        display: block;
+        opacity: 1;
+    }
+    to {
+        display: none;
+        opacity: 0;
+    }
+}
