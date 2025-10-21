@@ -21,6 +21,31 @@
                 animation-range: cover 0% contain 15%;
             }
         }
+
+        // dialog
+        // - - - - - - - - - - - - - - - - 
+
+        dialog {
+            position: fixed;
+            place-self: center;
+            min-width: 70svw;
+            min-height: 60svh;
+            display: none;
+            opacity: 0;
+            transition-property: display opacity;
+            transition-duration: .5s;
+            transition-behavior: allow-discrete;
+        }
+        dialog[open] {
+            display: block;
+            opacity: 1;
+            @starting-style {
+                opacity: 0;
+            }
+        }
+        dialog[open]::backdrop {
+            display: none;
+        }
     }
 }
 
@@ -54,43 +79,5 @@
 
     @media (prefers-color-scheme: light) {
         background: white;
-    }
-}
-
-
-// dialog
-// - - - - - - - - - - - - - - - - 
-
-dialog {
-    display: none;
-    place-self: center;
-    animation: vanish 1s;
-}
-
-dialog[open] {
-    display: block;
-    animation: appear 1s;
-}
-
-dialog[open]::backdrop {
-    display: none;
-}
-
-@keyframes appear {
-    from {
-        opacity: 0;
-    }
-    to {
-        opacity: 1;
-    }
-}
-@keyframes vanish {
-    from {
-        display: block;
-        opacity: 1;
-    }
-    to {
-        display: none;
-        opacity: 0;
     }
 }
