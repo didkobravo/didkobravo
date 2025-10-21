@@ -2,7 +2,7 @@
 @import "https://unpkg.com/open-props/normalize.min.css";
 
 .hero {
-    padding-block: 14svh;
+    padding-block: 14svh  7svh;
     display: grid;
     place-items: center;
     gap: 5px;
@@ -10,6 +10,10 @@
     text-transform: uppercase;
     font-size: min(10vi, 15vmin);
     font-family: var(--font-system-ui);
+
+    .highlight {
+      color: var(--lime-3);
+    }
   
     h1 {
       anchor-name: var(--⚓︎);
