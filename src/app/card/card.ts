@@ -1,4 +1,4 @@
-import { Component, HostBinding, ViewChild, ElementRef } from '@angular/core';
+import { Component, HostBinding, ViewChild, ElementRef, Input } from '@angular/core';
 
 @Component({
   selector: 'app-card',
@@ -10,4 +10,6 @@ import { Component, HostBinding, ViewChild, ElementRef } from '@angular/core';
 export class Card {
   @HostBinding('class') class = 'card-animation-layer';
   @ViewChild('dialog') dialog!: ElementRef<HTMLDialogElement>;
+  @Input() title!: string; // Using 'title' as an example for text/data
+  @Input() img!: string;   // Image source path or identifier
 }

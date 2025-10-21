@@ -1,10 +1,13 @@
 <div class="cards">
-    <app-card></app-card>
-    <app-card></app-card>
-    <app-card></app-card>
-    <app-card></app-card>
-    <app-card></app-card>
-    <app-card></app-card>
-    <app-card></app-card>
-    <app-card></app-card>
+  <app-card 
+    *ngFor="let card of cards"
+    [title]="card.title"
+    [img]="card.img">
+    <ng-container cardContent>
+      {{ card.cardContent }}
+    </ng-container>
+    <ng-container dialogContent>
+      {{ card.dialogContent }}
+    </ng-container>
+</app-card>
 </div>
