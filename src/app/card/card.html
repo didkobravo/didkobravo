@@ -5,6 +5,7 @@
 </article>
 
 <dialog #dialog>
+    <h2>{{title}}</h2>
     <ng-content select="[dialogContent]"></ng-content>
     <button class="close-btn" (click)="dialog.close()">Close</button>
 </dialog>
