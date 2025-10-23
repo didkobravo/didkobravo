@@ -1,4 +1,8 @@
-.hero {
+:host {
+  p {
+    margin: 0;
+  }
+  .hero {
     padding-block: 14svh  7svh;
     display: grid;
     place-items: center;
@@ -7,7 +11,7 @@
     text-transform: uppercase;
     font-size: min(10vi, 15vmin);
     font-family: var(--font-system-ui);
-
+  
     .highlight {
       color: var(--lime-3);
     }
@@ -57,3 +61,4 @@
       }
     }
   }
+}

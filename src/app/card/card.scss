@@ -36,6 +36,7 @@
             transition-property: display opacity;
             transition-duration: .5s;
             transition-behavior: allow-discrete;
+            color: lime;
         }
         dialog[open] {
             display: block;
@@ -49,6 +50,7 @@
         dialog[open]::backdrop {
             display: none;
         }
+
     }
 }
 
