@@ -1,4 +1,4 @@
-<article class="card" (click)="dialog.showModal()">
+<article class="card" (click)="onCardClick()">
     <img [src]="img" [alt]="title" height="500" width="500">
     <ng-content select="[cardContent]"></ng-content>
     <a href="#">Cool art</a> 
@@ -7,7 +7,7 @@
 <dialog #dialog>
     <h2>{{title}}</h2>
     <ng-content select="[dialogContent]"></ng-content>
-    <button class="close-btn" (click)="dialog.close()">Close</button>
+    <button class="close-btn" (click)="closeDialog()">CloseDialog()</button>
 </dialog>
 
 
