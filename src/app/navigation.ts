@@ -83,7 +83,13 @@ export class NavigationService {
    */
   private navigate(targetIndex: number, direction: NavigationDirection): void {
     const wasOpen = this.isDialogOpen();
-    
+    console.log('NavigationService.navigate:', {
+      fromIndex: this.currentIndex(),
+      toIndex: targetIndex,
+      wasOpen,
+      direction
+    });
+
     this.currentIndex.set(targetIndex);
     
     // If dialog wasn't open, open it
@@ -102,12 +108,24 @@ export class NavigationService {
    * Keyboard navigation setup
    */
   private setupKeyboardListener(): void {
+    let lastKeyTime = 0;
+    const debounceMs = 100; // Prevent double-fires within 100ms
+    
     window.addEventListener('keydown', (event: KeyboardEvent) => {
+      const now = Date.now();
+      
+      // Only process if enough time has passed since last key
+      if (now - lastKeyTime < debounceMs) {
+        return;
+      }
+      
       if (event.key === 'ArrowRight') {
         event.preventDefault();
+        lastKeyTime = now;
         this.goNext();
       } else if (event.key === 'ArrowLeft') {
         event.preventDefault();
+        lastKeyTime = now;
         this.goPrevious();
       }
     });

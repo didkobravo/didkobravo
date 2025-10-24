@@ -1,4 +1,5 @@
-import { Component, HostBinding, ViewChild, ElementRef, Input, signal, AfterViewInit } from '@angular/core';
+import { Component, HostBinding, ViewChild, ElementRef, Input, signal, inject, AfterViewInit } from '@angular/core';
+import { NavigationService } from '../navigation';
 
 export type AnimationDirection = 'left' | 'right' | 'default';
 
@@ -14,9 +15,11 @@ export class Card implements AfterViewInit {
   @ViewChild('dialog') dialog!: ElementRef<HTMLDialogElement>;
   @Input() title!: string;
   @Input() img!: string;
+  @Input() index!: number;
 
   animationDirection = signal<AnimationDirection>('default');  
   private dialogReady = false;
+  private navigationService = inject(NavigationService);
 
   ngAfterViewInit(): void {
     this.dialogReady = true;
@@ -30,6 +33,7 @@ export class Card implements AfterViewInit {
     this.animationDirection.set('default');
     if (this.dialog?.nativeElement) {
       this.dialog.nativeElement.showModal();
+      this.navigationService.setDialogOpen(true, this.index);
     }
   }
 
@@ -37,6 +41,7 @@ export class Card implements AfterViewInit {
     if (!this.dialogReady) return;
     if (this.dialog?.nativeElement) {
       this.dialog.nativeElement.close();
+      this.navigationService.closeDialog();
     }
   }
 
