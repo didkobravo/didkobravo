@@ -1,4 +1,4 @@
-@layer app;
+// @layer app;
 
 @layer app {
     @keyframes slide-in {
@@ -14,6 +14,7 @@
     
     // .card-animation-layer 
     :host {
+
         @media (prefers-reduced-motion: no-preference) {
             @supports (animation-timeline: view()) {
                 animation: slide-in linear both;
@@ -36,19 +37,23 @@
             transition-property: display opacity;
             transition-duration: .5s;
             transition-behavior: allow-discrete;
-            color: lime;
         }
         dialog[open] {
             display: block;
             opacity: 1;
             translate: 0 0;
+            
+            overflow: visible;
+            padding-top: 5rem;
+
             @starting-style {
                 opacity: 0;
                 translate: 0 -25vh;
             }
         }
         dialog[open]::backdrop {
-            display: none;
+            // display: none;
+            backdrop-filter: blur(1.4px);
         }
 
     }
@@ -85,4 +90,11 @@
     @media (prefers-color-scheme: light) {
         background: white;
     }
+}
+
+h2 {
+    position: absolute;
+    top: -1.2rem;
+    left: -.7rem;
+    line-height: 1;
 }

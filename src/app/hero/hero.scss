@@ -1,4 +1,7 @@
 :host {
+  min-height:80svh;
+  display: grid;
+  align-items: center;
   p {
     margin: 0;
   }
@@ -30,12 +33,13 @@
       }
     }
   
+
     p {
       white-space: nowrap;
       text-box: cap alphabetic;
       font-size: .35cap;
-      font-weight: 700;
-      font-variation-settings: 'wght' 700;
+      font-weight: 100;
+      font-stretch: 70%; // deprecated
       line-height: 1cap;
       color: color-mix(in oklab, currentcolor, transparent 30%);
     }
